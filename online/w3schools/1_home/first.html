@@ -4,16 +4,20 @@
 
 <h1>My First JavaScript</h1>
 <p>Click the button to display the current day, date, and time.</p>
-<p id="demo"></p>
+
+<p id="demo">
+<b id="date">Date will come here</b>
+</p>
 
 <button type="button" onclick="myFunction()">Try it</button>
 
 <script>
 function myFunction()
 {
-document.getElementById("demo").innerHTML = Date();
+    var ex = document.getElementById("date").innerHTML.replace("will come here", "is");
+    document.getElementById("demo").innerHTML = '<b id="date">'+ ex + "</b><br/>" + Date();
 }
 </script>
 
 </body>
-</html> 
+</html>
