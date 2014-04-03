@@ -44,8 +44,7 @@
 [09:28:01.276] document.childNodes[1]
 [09:28:01.279] [object HTMLHtmlElement]
 --
-[09:20:56.439] for anchor in document.anchors
-[09:20:56.442] SyntaxError: missing ( after for
---
-[09:21:06.263] for (anchor in document.anchors)
-[09:21:06.266] SyntaxError: syntax error
+[10:34:31.731] for (var index=0; index < document.childNodes.length; index++) { console.log(document.childNodes[index])}
+[10:34:31.734] undefined
+[10:34:31.735] [object XrayWrapper [object DocumentType]]
+[10:34:31.735] [object XrayWrapper [object HTMLHtmlElement]]
