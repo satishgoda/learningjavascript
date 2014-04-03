@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+
 <p>Click the button to loop through the properties of the object.</p>
 <button onclick="myFunction()">Try it</button>
 <p id="demo"></p>
@@ -8,16 +9,21 @@
 <script>
 function myFunction()
 {
-var txt = "";
-var person = {fname:"John", lname:"Doe", age:25}; 
+    var txt = "";
+    
+    var person = {fname:"John"}; 
+    
+    person.lname = "Smith";
+    person.age = 100;
+    
+    for (var x in person)
+    {
+        txt +=  person[x] + " ";
+    }
 
-for (var x in person)
-{
-txt = txt + person[x] + " ";
-}
-
-document.getElementById("demo").innerHTML = txt;
+    document.getElementById("demo").innerHTML = txt + Date.now();
 }
 </script>
+
 </body>
 </html>
