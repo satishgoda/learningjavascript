@@ -1,5 +1,4 @@
 
-<script>
 var add1 = function (x) {
     return x + 1;
 };
@@ -17,4 +16,3 @@ var negate = function(func) {
 // Because (5+1) * -1 = -6
 negate(add1)(5);
 
-</script>
