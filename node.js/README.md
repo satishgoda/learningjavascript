@@ -10,3 +10,8 @@
 > V8 can run standalone, or can be embedded into any C++ application.
 
 * https://code.google.com/p/v8
+
+# Reading
+
+* http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb
+* http://www.nodebeginner.org
