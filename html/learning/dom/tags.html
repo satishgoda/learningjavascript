@@ -1,12 +1,38 @@
 <html>
+
 <head>
 <meta charset="UTF-8">
+
 <title>
-Tags by name
+    Tags by name
 </title>
+
 </head>
+
 <body>
-<a href='google.com'>Google</a>
-<a href='blender.org'>Blender</a>
+
+<script>
+window.onload = function onLoad()
+{
+    window.alert("Mwhaha")
+}
+
+function doAlert(aid)
+{
+    var x = document.getElementById(aid);
+    window.alert(x.innerHTML + '\n' + x.href);
+}
+</script>
+
+<a href='http://www.google.com' id='a1'>Google</a>
+<button onclick='doAlert("a1")'></button>
+
+<br/>
+
+<a href='http://www.blender.org' id='a2'>Blender</a>
+<button onclick='doAlert("a2")'></button>
+  
+<br/>
+
 </body>
 </html>
