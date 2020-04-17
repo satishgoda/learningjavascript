@@ -1,4 +1,0 @@
-
-http://www.w3schools.com/tags/tag_doctype.asp
-
-<!DOCTYPE HTML>
