@@ -10,26 +10,29 @@ var createScene = function() {
     Math.PI / 2,
     Math.PI / 2,
     2,
-    new BABYLON.Vector3(0, 0, 3),
+    new BABYLON.Vector3(0, 0, 0),
     scene
   );
   camera.attachControl(canvas, true);
 
   var light1 = new BABYLON.HemisphericLight(
     "light1",
-    new BABYLON.Vector3(1, 1, 0),
-    scene
-  );
-
-  var light2 = new BABYLON.PointLight(
-    "light2",
-    new BABYLON.Vector3(0, 1, -1),
+    new BABYLON.Vector3(1, 1, 1),
     scene
   );
 
   var box  = new BABYLON.MeshBuilder.CreateBox(
     "box",
-    {},
+    {
+        faceColors: [
+            new BABYLON.Color4(1, 0, 0),
+            new BABYLON.Color4(0, 1, 0),
+            new BABYLON.Color4(0, 0, 1),
+            new BABYLON.Color4(1, 1, 0),
+            new BABYLON.Color4(0, 1, 1),
+            new BABYLON.Color4(1, 0, 1),
+        ],
+    },
     scene
   );
 
