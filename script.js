@@ -10,7 +10,7 @@ var createScene = function() {
     Math.PI / 2,
     Math.PI / 2,
     2,
-    new BABYLON.Vector3(0, 0, 0),
+    new BABYLON.Vector3(-1, 1, 2),
     scene
   );
   camera.attachControl(canvas, true);
@@ -21,20 +21,41 @@ var createScene = function() {
     scene
   );
 
-  var box  = new BABYLON.MeshBuilder.CreateBox(
-    "box",
+  var plane = new BABYLON.MeshBuilder.CreatePlane(
+    "plane",
+    {size: 1},
+    scene
+  );
+  
+  var sourcePlane = new BABYLON.Plane(0, 1, 0, 0);
+  sourcePlane.normalize()
+  
+  var groundplane = new BABYLON.MeshBuilder.CreatePlane(
+    "plane",
     {
-        faceColors: [
-            new BABYLON.Color4(1, 0, 0),
-            new BABYLON.Color4(0, 1, 0),
-            new BABYLON.Color4(0, 0, 1),
-            new BABYLON.Color4(1, 1, 0),
-            new BABYLON.Color4(0, 1, 1),
-            new BABYLON.Color4(1, 0, 1),
-        ],
+      size: 5,
+      sourcePlane: sourcePlane,
+      sideOrientation: BABYLON.Mesh.DOUBLESIDE
     },
     scene
   );
+  
+  var box = new BABYLON.MeshBuilder.CreateBox(
+    "box",
+    {
+      faceColors: [
+        new BABYLON.Color4(1, 0, 0, 1),
+        new BABYLON.Color4(0, 1, 0, 1),
+        new BABYLON.Color4(0, 0, 1, 1),
+        new BABYLON.Color4(1, 1, 0, 1),
+        new BABYLON.Color4(1, 0, 1, 1),
+        new BABYLON.Color4(0, 1, 1, 1),
+      ],
+    },
+    scene
+  );
+  
+  box.setPositionWithLocalVector(new BABYLON.Vector3(0, .5, 0));
 
   return scene;
 };
