@@ -5,6 +5,8 @@ var engine = new BABYLON.Engine(canvas, true);
 var createScene = function() {
   var scene = new BABYLON.Scene(engine);
 
+  var axes = new BABYLON.Debug.AxesViewer(scene);
+  
   var camera = new BABYLON.ArcRotateCamera(
     "Camera",
     Math.PI / 2,
