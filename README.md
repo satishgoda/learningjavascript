@@ -18,3 +18,7 @@ Now let us add shadows to this scene
 
 - https://doc.babylonjs.com/babylon101/lights
 - https://doc.babylonjs.com/babylon101/shadows
+
+## Inspector
+
+- https://doc.babylonjs.com/features/intro_inspector

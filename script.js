@@ -21,7 +21,7 @@ camera.attachControl(canvas, true);
 
 // GEOMETRY
 
-var sourcePlane = new BABYLON.Plane(0, 1, 0, 0);
+var sourcePlane = new BABYLON.Plane(0, -1, 0, 0);
 sourcePlane.normalize();
 
 var groundplane = new BABYLON.MeshBuilder.CreatePlane(
@@ -50,7 +50,7 @@ var box = new BABYLON.MeshBuilder.CreateBox(
   scene
 );
 
-box.setPositionWithLocalVector(new BABYLON.Vector3(0, 0.5, -1));
+box.setPositionWithLocalVector(new BABYLON.Vector3(0, 0.5, -2));
 
 box.actionManager = new BABYLON.ActionManager(scene);
 box.URL = "https://doc.babylonjs.com/api/classes/babylon.debug.axesviewer";
@@ -92,6 +92,13 @@ var shadowGenerator = new BABYLON.ShadowGenerator(128, light1);
 shadowGenerator.addShadowCaster(box);
 shadowGenerator.addShadowCaster(sphere);
 shadowGenerator.bias = 0.005;
+
+scene.debugLayer.show(
+{
+  embedMode: true,
+  enablePopup: false
+}
+);
 
 // VROOOM
 
