@@ -6,7 +6,9 @@ var ground = new BABYLON.MeshBuilder.CreateGround(
   },
   scene
 );
+
 ground.receiveShadows = true;
+
 
 var box = new BABYLON.MeshBuilder.CreateBox("box", {}, scene);
 

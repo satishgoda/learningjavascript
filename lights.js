@@ -3,7 +3,11 @@ var sunLight = new BABYLON.DirectionalLight(
   new BABYLON.Vector3(-1, -1, -1),
   scene
 );
+
 sunLight.intensity = 0.8;
+sunLight.autoUpdateExtends = true;
+sunLight.autoCalcShadowZBounds = true;
+
 
 var ambientLight = new BABYLON.HemisphericLight(
   "ambientLight",
@@ -11,13 +15,3 @@ var ambientLight = new BABYLON.HemisphericLight(
   scene
 );
 ambientLight.intensity = .3;
-
-
-// SHADOWS
-
-sunLight.autoUpdateExtends = true;
-sunLight.autoCalcShadowZBounds = true;
-
-var shadowGenerator = new BABYLON.ShadowGenerator(128, sunLight);
-shadowGenerator.addShadowCaster(box);
-shadowGenerator.bias = 0.005;

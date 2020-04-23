@@ -6,10 +6,6 @@ var scene = new BABYLON.Scene(engine);
 
 var axes_world = new BABYLON.Debug.AxesViewer(scene);
 
-// CAMERA
-// GEOMETRY
-// MATERIALS
-// LIGHTS
 
 scene.debugLayer.show({
   embedMode: true,
@@ -20,6 +16,7 @@ scene.debugLayer.show({
 engine.runRenderLoop(function() {
   scene.render();
 });
+
 
 window.addEventListener("resize", function() {
   engine.resize();
