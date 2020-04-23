@@ -4,7 +4,7 @@ var engine = new BABYLON.Engine(canvas, true);
 
 var scene = new BABYLON.Scene(engine);
 
-var axes = new BABYLON.Debug.AxesViewer(scene);
+var axes_world = new BABYLON.Debug.AxesViewer(scene);
 
 // CAMERA
 
@@ -16,81 +16,64 @@ var camera = new BABYLON.ArcRotateCamera(
   new BABYLON.Vector3(0, 0, 0),
   scene
 );
-camera.setPosition(new BABYLON.Vector3(-2, 2, 3));
+camera.setPosition(new BABYLON.Vector3(-2, 2, 5));
 camera.attachControl(canvas, true);
 
 // GEOMETRY
 
-var sourcePlane = new BABYLON.Plane(0, -1, 0, 0);
-sourcePlane.normalize();
-
-var groundplane = new BABYLON.MeshBuilder.CreatePlane(
-  "plane",
+var ground = new BABYLON.MeshBuilder.CreateGround(
+  "ground",
   {
-    size: 15,
-    sourcePlane: sourcePlane,
-    sideOrientation: BABYLON.Mesh.DOUBLESIDE
+    width: 15, 
+    height: 15
   },
   scene
 );
-groundplane.receiveShadows = true;
+ground.receiveShadows = true;
 
 var box = new BABYLON.MeshBuilder.CreateBox(
   "box",
-  {
-    faceColors: [
-      new BABYLON.Color4(1, 0, 0, 1),
-      new BABYLON.Color4(0, 1, 0, 1),
-      new BABYLON.Color4(0, 0, 1, 1),
-      new BABYLON.Color4(1, 1, 0, 1),
-      new BABYLON.Color4(1, 0, 1, 1),
-      new BABYLON.Color4(0, 1, 1, 1)
-    ]
-  },
+  {},
   scene
 );
 
-box.setPositionWithLocalVector(new BABYLON.Vector3(0, 0.5, -2));
+box.setPositionWithLocalVector(new BABYLON.Vector3(0, 0.5, 0));
 
-box.actionManager = new BABYLON.ActionManager(scene);
-box.URL = "https://doc.babylonjs.com/api/classes/babylon.debug.axesviewer";
-box.actionManager.registerAction(
-  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
-    event
-  ) {
-    var box = event.meshUnderPointer;
-    window.open(box.URL);
-  })
-);
+// MATERIALS
 
-var sphere = new BABYLON.MeshBuilder.CreateSphere("sphere", {}, scene);
-sphere.setPositionWithLocalVector(new BABYLON.Vector3(2, 0.5, 0));
+mtl_apple = new BABYLON.StandardMaterial("mtl_apple", scene)
+mtl_apple.diffuseColor = new BABYLON.Color3(0.8, 0.2, 0);
+
+box.material = mtl_apple;
+
+mtl_sand = new BABYLON.StandardMaterial("mtl_sand", scene)
+mtl_sand.diffuseColor = new BABYLON.Color3(0.7, 0.5, 0);
+
+ground.material = mtl_sand
 
 // LIGHTS
 
-var light1 = new BABYLON.DirectionalLight(
-  "light1",
+var sunLight = new BABYLON.DirectionalLight(
+  "sunLight",
   new BABYLON.Vector3(-1, -1, -1),
   scene
 );
-light1.intensity = 0.8;
+sunLight.intensity = .8;
 
-var light2 = new BABYLON.HemisphericLight(
-  "light2",
+var ambientLight = new BABYLON.HemisphericLight(
+  "ambientLight",
   new BABYLON.Vector3(0, 1, 0),
   scene
 );
-light2.diffuse = new BABYLON.Color3(0.4, 0.4, 0.3);
-light2.intensity = 0.6;
+ambientLight.intensity = 0.3;
 
 // SHADOWS
 
-light1.autoUpdateExtends = true;
-light1.autoCalcShadowZBounds = true;
+sunLight.autoUpdateExtends = true;
+sunLight.autoCalcShadowZBounds = true;
 
-var shadowGenerator = new BABYLON.ShadowGenerator(128, light1);
+var shadowGenerator = new BABYLON.ShadowGenerator(128, sunLight);
 shadowGenerator.addShadowCaster(box);
-shadowGenerator.addShadowCaster(sphere);
 shadowGenerator.bias = 0.005;
 
 scene.debugLayer.show(
