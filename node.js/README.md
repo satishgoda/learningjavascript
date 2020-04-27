@@ -20,6 +20,13 @@
 ## 4/26/2020
 
 - https://gist.github.com/satishgoda/113d26bf034acb9d2d3ade6e42f2e9ae (node.js static file web server)
+- https://mockoon.com (Mock API in seconds)
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed
+```
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://localhost:3000/colors. (Reason: CORS request did not succeed).
+
+TypeError: NetworkError when attempting to fetch resource.
+```
 
 # Reading
 
