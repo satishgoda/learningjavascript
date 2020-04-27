@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue"></script>
+    <script type='application/javascript' src="./main.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>What I like!</h1>
+        <h2>love "{{ stuff }}"</h2>
+        <h2>Colors</h2>
+        <ol>
+            <li v-for="color in colors" v-bind:style="{color:color.code}">
+                {{color.name}}
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>
