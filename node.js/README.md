@@ -11,11 +11,12 @@
 
 * https://code.google.com/p/v8
 
-# Blog
+# Today I Learned
 
 ## 4/27/2020
 
 - https://github.com/zeit/serve (Static file serving and directory listing)
+- https://www.npmjs.com/package/npx (execute npm package binaries)
 
 ## 4/26/2020
 
