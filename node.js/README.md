@@ -11,6 +11,16 @@
 
 * https://code.google.com/p/v8
 
+# Blog
+
+## 4/27/2020
+
+- https://github.com/zeit/serve (Static file serving and directory listing)
+
+## 4/26/2020
+
+- https://gist.github.com/satishgoda/113d26bf034acb9d2d3ade6e42f2e9ae (node.js static file web server)
+
 # Reading
 
 * http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb
