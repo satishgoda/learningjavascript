@@ -9,7 +9,7 @@ window.onload = function () {
       },
 
       created() {
-        fetch("http://localhost:3000/colors")
+        fetch("./colors.json")
           .then(response => response.json())
           .then(colors => {
             this.colors = colors;
