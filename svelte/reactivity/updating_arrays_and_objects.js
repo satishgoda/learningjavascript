@@ -2,14 +2,15 @@
 	let numbers = [1, 2, 3, 4];
 
 	function addNumber() {
-		//numbers.push(numbers.length + 1);
-		numbers = [...numbers, numbers.length+1]
+	  //numbers.push(numbers[numbers.length-1] + 1);
+		//numbers = numbers
+		numbers = [...numbers, numbers[numbers.length-1]+1]
 	}
 
 	function removeNumber() {
 		numbers.pop();
 		if (numbers.length === 0) {
-			numbers = [1]
+			numbers = [0]
 		}else{
 			numbers = numbers
 		}
