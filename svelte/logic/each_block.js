@@ -9,9 +9,9 @@
 <h1>The Famous Cats of YouTube</h1>
 
 <ul>
-	{#each cats as cat, index}
-		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
-			{cat.name} ({index})
+	{#each cats as { name, id }, index}
+		<li><a target="_blank" href="https://www.youtube.com/watch?v={id}">
+			{name} ({index})
 		</a></li>
 	{/each}
 </ul>
